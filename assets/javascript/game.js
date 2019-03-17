@@ -167,7 +167,7 @@ $(document).ready(function() {
                 }
             }
 
-            if(num_alive > 1) {
+            if(num_alive >= 1) {
                 $("#select_enemy").show();
             }
     
