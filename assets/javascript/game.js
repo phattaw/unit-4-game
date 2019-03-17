@@ -13,8 +13,8 @@ const darth_sidious_base_health = 150;
 const darth_maul_base_health = 180;
 
 var wins;
-var attacker_obj;
-var defender_obj;
+var attacker_obj = false;
+var defender_obj = false;
 
 var characters = [
     {
@@ -73,24 +73,12 @@ $(document).ready(function() {
 
     function render() {
 
-        if(attacker_obj != undefined) {
+        if(attacker_obj != false) {
             $("#attacker_health").text(attacker_obj.health);
         }
 
-        if(defender_obj != undefined) {
+        if(defender_obj != false) {
             $("#defender_health").text(defender_obj.health);
-        }
-
-        for(let i = 0; i < characters.length; i++) {
-
-            if(characters[i].alive === true) {
-                $("#enemy_image" + i).show();
-                $("#enemy_txt" + i).show();
-            }
-            else {
-                $("#enemy_image" + i).hide();
-                $("#enemy_txt" + i).hide();
-            }
         }
 
         gameOverCheck();
@@ -124,8 +112,8 @@ $(document).ready(function() {
 
     function resetGame () {
     
-    attacker_obj = undefined;
-    defender_obj = undefined;
+    attacker_obj = false;
+    defender_obj = false;
 
     $("#select_character").show();
     
@@ -148,13 +136,11 @@ $(document).ready(function() {
         characters[i].alive = true;
         }
 
-    $(".img_container0").show();
-    $(".img_container1").show();
-    $(".img_container2").show();
-    $(".img_container3").show();
+    hideEnemies();
+
+    $(".images").show();
 
     $("#select_enemy").hide();
-    $(".enemy_images").hide();
 
     $("#atk_btn").show();
 
@@ -172,16 +158,20 @@ $(document).ready(function() {
         if(defender_obj.health <= 0) {
             $(".defender").hide();
             characters[defender_obj.character_picked].alive = false;
-            $(".enemy_images").show();
 
+            let num_alive = 0;
             for(let i = 0; i < characters.length; i++) {
-                if(characters[defender_obj.character_picked].alive === true) {
-                    $("#enemy_image" + i).show();
+                if(characters[i].alive === true && attacker_obj.character_picked !== i) {
+                    num_alive++;
                     $(".enemy_img_container" + i).show();
                 }
             }
+
+            if(num_alive > 1) {
+                $("#select_enemy").show();
+            }
     
-            defender_obj = undefined;
+            defender_obj = false;
         }
         else {
             attacker_obj.health -= defender_obj.attack_dmg;
@@ -200,11 +190,11 @@ $(document).ready(function() {
 
     function imageClicked(img_clicked, character) {
 
-        if(attacker_obj === undefined) {
+        if(attacker_obj === false) {
             selectAttacker(character);
             img_clicked.hide();
         }
-        else if(defender_obj === undefined) {
+        else if(defender_obj === false) {
             selectDefender(character);
             img_clicked.hide();
         }
@@ -222,13 +212,12 @@ $(document).ready(function() {
 
         for(let i = 0; i < characters.length; i++) {
             if(i !== attacker.character_picked) {
-                $(".enemy_images" + i).show();
                 $("#enemy_image" + i).attr("src", characters[i].character_image);
                 $("#enemy_txt" + i).text(characters[i].character_name);
             }
         }
 
-        $(".enemy_images").show();
+        showEnemies();
     }
 
     function selectDefender (defender) {
@@ -238,7 +227,9 @@ $(document).ready(function() {
         $("#defender_health").text(defender_obj.health)
         $(".defender").show();
         $("#select_enemy").hide();
-        $(".enemy_images").hide();
+        $(".images").hide();
+
+        hideEnemies();
     }
 
     function gameOverCheck() {
@@ -269,5 +260,24 @@ $(document).ready(function() {
         }
     }
 
+    function showEnemies() {
+        for(let i = 0; i < characters.length; i++) {
+
+            if(characters[i].alive === true && attacker_obj.character_picked !== i && defender_obj.character_picked !== i) {
+                $(".enemy_img_container" + i).show();
+            }
+            else {
+                $(".enemy_img_container" + i).hide();
+            }
+        }
+    }
+
+    function hideEnemies() {
+        for(let i = 0; i < characters.length; i++) {
+            $(".enemy_img_container" + i).hide();
+        }
+
+    }
+    
 });
 
