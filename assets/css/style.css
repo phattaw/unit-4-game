@@ -1,0 +1,58 @@
+
+body {
+    background-repeat: no-repeat;
+    font-family: 'Carrois Gothic', sans-serif;
+    color: white;
+}
+
+.container {
+    background-image: url('../images/star_wars.png');
+    background-repeat: no-repeat;
+    width: 727px;
+    height: 1292px;
+
+}
+
+h1 {
+    clear: both;
+    text-align: center;
+}
+
+h2 {
+    clear: both;
+}
+
+.images {
+    clear: none;
+    float: left;
+}
+.enemy_images {
+    clear: none;
+    float: left;
+}
+
+#atkr_img {
+    float: left;
+    clear: both;
+    width: 100px;
+    height: 100px;
+}
+
+button {
+    clear: both;
+}
+
+#attacker_health {
+    clear: both;
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+
+.defender_health {
+    clear: both;
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+

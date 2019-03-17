@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Star Wars RPG!</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./assets/css/reset.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Carrois+Gothic" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+  <row>
+    <col-12-xs>
+      <h1>Star Wars RPG!</h1>        
+    </col-12-xs>
+  </row>
+  <row>
+    <col-12-xs>
+      <h2 id="select_character">Select Your Character:</h2>
+    </col-12-xs>
+  </row>
+  
+  <row>    
+    <div class="col-xs-3 images img_container0">
+      <a alt="Character 0"> 
+        <img id="image0" src=""></img> 
+        <div id="img_txt0" class="centered"></div>
+      </a>
+    </div>
+    <div class="col-xs-3 images img_container1">
+      <a alt="Character 1"> 
+        <img id="image1" src=""></img> 
+        <div id="img_txt1" class="centered"></div>
+      </a> 
+    </div>
+    <div class="col-xs-3 images img_container2">
+      <a alt="Character 2"> 
+        <img id="image2" src=""></img> 
+        <div id="img_txt2" class="centered"></div>
+      </a> 
+    </div>
+    <div class="col-xs-3 images img_container3">
+      <a alt="Character 3"> 
+        <img id="image3" src=""></img> 
+        <div id="img_txt3" class="centered"></div>
+      </a> 
+    </div>
+  </row>
+
+  <row>
+    <col-12-xs>
+      <h2 id="select_enemy">Enemies available to attack:</h2>
+    </col-12-xs>
+  </row>
+
+  <row>    
+      <div class="col-xs-3 enemy_images enemy_img_container0">
+        <a alt="Character 0"> 
+          <img id="enemy_image0" src=""></img> 
+          <div id="enemy_txt0" class="centered"></div>
+        </a>
+      </div>
+      <div class="col-xs-3 enemy_images enemy_img_container1">
+        <a alt="Character 1"> 
+          <img id="enemy_image1" src=""></img> 
+          <div id="enemy_txt1" class="centered"></div>
+        </a> 
+      </div>
+      <div class="col-xs-3 enemy_images enemy_img_container2">
+        <a alt="Character 2"> 
+          <img id="enemy_image2" src=""></img> 
+          <div id="enemy_txt2" class="centered"></div>
+        </a> 
+      </div>
+      <div class="col-xs-3 enemy_images enemy_img_container3">
+        <a alt="Character 3"> 
+          <img id="enemy_image3" src=""></img> 
+          <div id="enemy_txt3" class="centered"></div>
+        </a> 
+      </div>
+    </row>  
+
+  <row>
+    <col-12-xs>
+      <h2>Fight Section</h2>
+    </col-12-xs>
+  </row>
+
+  <row>
+    <col-12-xs>
+      <div class="attacker">
+          <a alt="Attacker Image"> 
+            <img id="atkr_img" src=""></img> 
+            <div id="attacker_health"></div>
+          </a> 
+      </div>
+    </col-12-xs>
+  </row>
+
+  <row>
+    <col-12-xs>
+      <button id="atk_btn" type="button">Attack!</button>
+    </col-12-xs>
+  </row>
+
+  <row>
+    <col-12-xs>  
+      <h2>Defender</h2>
+    </col-12-xs>
+  </row>
+
+  <row>
+    <col-12-xs>    
+      <div class="defender">
+          <a alt="Defender Image"> 
+            <img id="dfndr_img" src=""></img> 
+            <div id="defender_health"></div>
+          </a> 
+      </div>
+    </col-12-xs>
+  </row>
+
+  <row>
+    <col-12-xs>  
+      <h2 id="game_over_text"></h2>
+    </col-12-xs>
+  </row>  
+
+  <row>
+      <col-12-xs>
+        <button id="game_over_btn" type="button">Play Again?</button>
+      </col-12-xs>
+  </row>
+    
+</div>
+
+<script src="./assets/javascript/game.js"></script>
+
+</body>
+</html>
